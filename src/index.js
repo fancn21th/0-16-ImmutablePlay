@@ -1,1 +1,3 @@
-const foo = 'bar';
+const foo = () => 'bar';
+
+export default foo;
