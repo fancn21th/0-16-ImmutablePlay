@@ -1,6 +1,10 @@
 {
+  "env": {
+    "jest": true
+  },
   "extends": "airbnb",
   "rules": {
-    "semi": [2, "never"]
+    "semi": [2, "never"],
+    "linebreak-style": 0
   }
 }
