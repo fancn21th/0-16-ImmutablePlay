@@ -28,11 +28,12 @@ describe('Modifying an Immutable Map()', () => {
   it('should remove all todos', () => {
     let todos = Immutable.Map()
     _.range(10).forEach((index) => {
-      todos = todosActions.addTodo(todos, new Todo(
+      const todo = new Todo(
         `Todo ${index}`,
         'I am a todo',
         false,
-      ))
+      )
+      todos = todosActions.addTodo(todos, todo)
     })
     expect(todos.size).toEqual(10)
     todos = todosActions.clearAll(todos)
