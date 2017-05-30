@@ -39,4 +39,26 @@ describe('Modifying an Immutable Map()', () => {
     todos = todosActions.clearAll(todos)
     expect(todos.size).toEqual(0)
   })
+  it('should merge two todo list', () => {
+    let todos = Immutable.Map()
+    _.range(10).forEach((index) => {
+      const todo = new Todo(
+        `Todo ${index}`,
+        'I am a todo',
+        false,
+      )
+      todos = todosActions.addTodo(todos, todo)
+    })
+    let todos2 = Immutable.Map()
+    _.range(10).forEach((index) => {
+      const todo = new Todo(
+        `Todo ${index}`,
+        'I am a todo',
+        false,
+      )
+      todos2 = todosActions.addTodo(todos2, todo)
+    })
+    todos = todosActions.mergeTodos(todos, todos2)
+    expect(todos.size).toEqual(20)
+  })
 })
